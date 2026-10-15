@@ -69,3 +69,100 @@ a { color: inherit; text-decoration: none; }
     outline-offset: 3px;
 }
 
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--oscuro);
+    color: var(--blanco);
+    border-bottom: 3px solid var(--verde);
+}
+
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 4rem;
+}
+
+.marca {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+.marca-pequena {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--acento);
+}
+.marca-nombre {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Checkbox oculto: solo sirve para guardar el estado abierto/cerrado */
+.menu-check {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 2px solid var(--verde);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.menu-icono,
+.menu-icono::before,
+.menu-icono::after {
+    display: block;
+    width: 1.4rem;
+    height: 3px;
+    background: var(--blanco);
+    border-radius: 2px;
+    transition: transform 0.3s, background 0.3s;
+}
+.menu-icono { position: relative; }
+.menu-icono::before,
+.menu-icono::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+.menu-icono::before { top: -7px; }
+.menu-icono::after { top: 7px; }
+
+/* Cuando el checkbox está marcado, el icono se convierte en una X */
+.menu-check:checked + .menu-boton .menu-icono { background: transparent; }
+.menu-check:checked + .menu-boton .menu-icono::before { transform: translateY(7px) rotate(45deg); }
+.menu-check:checked + .menu-boton .menu-icono::after { transform: translateY(-7px) rotate(-45deg); }
+
+/* Menú móvil: oculto por defecto, aparece al marcar el checkbox */
+.menu {
+    display: none;
+    width: 100%;
+    padding-bottom: 0.75rem;
+}
+.menu-check:checked ~ .menu { display: block; }
+
+.menu a {
+    display: block;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--oscuro-2);
+    transition: color 0.3s, background 0.3s, padding-left 0.3s;
+}
+.menu a:hover {
+    color: var(--acento);
+    background: var(--oscuro-2);
+    padding-left: 1rem;
+}
