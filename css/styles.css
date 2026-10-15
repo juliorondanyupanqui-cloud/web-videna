@@ -448,3 +448,73 @@ a { color: inherit; text-decoration: none; }
 .pie a { transition: color 0.3s; }
 .pie a:hover { color: var(--acento); }
 .pie-derechos { font-size: 0.85rem; color: #b8c4bc; }
+
+/* ---------- 12. ANIMACIÓN DE ENTRADA ---------- */
+@keyframes entrada {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   MEDIA QUERIES (Mobile First: se usa min-width)
+   ========================================================= */
+
+/* Celulares grandes / tablets pequeñas */
+@media (min-width: 600px) {
+    .portada h1 { font-size: 3rem; }
+    .portada-botones { flex-direction: row; }
+    .rejilla-contacto { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Tablets: 768px */
+@media (min-width: 768px) {
+    .contenedor { padding: 0 1.5rem; }
+    .rejilla-canchas { grid-template-columns: repeat(2, 1fr); }
+    .tarjeta-imagen { height: 240px; }
+
+    /* Tarjeta ancha de vóley y básquet: imagen a la izquierda, texto a la derecha */
+    .tarjeta-ancha { flex-direction: row; }
+    .tarjeta-ancha .tarjeta-imagen { flex: 1 1 50%; height: auto; min-height: 280px; }
+    .tarjeta-ancha .tarjeta-cuerpo { flex: 1 1 50%; align-self: center; padding: 2rem; }
+}
+
+/* Laptops: 1024px - el menú pasa a ser horizontal */
+@media (min-width: 1024px) {
+    .menu-boton { display: none; }
+
+    .menu {
+        display: block;
+        width: auto;
+        padding-bottom: 0;
+    }
+    .menu ul { display: flex; gap: 0.5rem; }
+    .menu a {
+        border-bottom: 0;
+        border-radius: 999px;
+        padding: 0.5rem 1.1rem;
+    }
+    .menu a:hover { padding-left: 1.1rem; background: var(--verde); color: var(--blanco); }
+
+    .portada { min-height: 90vh; }
+    .portada h1 { font-size: 4rem; }
+    .seccion { padding: 4.5rem 0; }
+    .rejilla-contacto { grid-template-columns: repeat(4, 1fr); }
+    .pie-contenido { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+/* Escritorio grande: 1440px */
+@media (min-width: 1440px) {
+    .contenedor { max-width: 1280px; }
+    .portada h1 { font-size: 4.5rem; }
+}
+
+/* Movimiento reducido: se quitan las animaciones no esenciales */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    .tarjeta:hover,
+    .boton:hover { transform: none; }
+}
