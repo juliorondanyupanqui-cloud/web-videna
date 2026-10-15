@@ -518,3 +518,155 @@ a { color: inherit; text-decoration: none; }
     .tarjeta:hover,
     .boton:hover { transform: none; }
 }
+
+/* =========================================================
+   SECCIÓN DE RESERVAS
+   ========================================================= */
+.selector { border: 0; margin-bottom: 2.5rem; min-width: 0; }
+.selector-leyenda {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+}
+
+.rejilla-opciones {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.opcion { display: flex; flex-direction: column; gap: 0.75rem; }
+
+/* El radio real se oculta, pero sigue siendo accesible con el teclado */
+.opcion-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.opcion-tarjeta {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: var(--blanco);
+    border: 3px solid transparent;
+    border-radius: var(--radio);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.opcion-tarjeta:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25); }
+
+.opcion-radio:checked + .opcion-tarjeta { border-color: var(--verde); box-shadow: 0 0 0 4px var(--verde-claro), var(--sombra); }
+.opcion-radio:focus-visible + .opcion-tarjeta { outline: 3px solid var(--acento); outline-offset: 3px; }
+
+.opcion-imagen { position: relative; display: block; height: 180px; overflow: hidden; }
+.opcion-imagen img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Marca que solo aparece cuando la tarjeta está seleccionada (no depende solo del color) */
+.opcion-marca {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    background: var(--verde);
+    color: var(--blanco);
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+.opcion-radio:checked + .opcion-tarjeta .opcion-marca { opacity: 1; transform: translateY(0); }
+
+.opcion-cuerpo { display: block; padding: 1rem; }
+.opcion-nombre { display: block; font-size: 1.2rem; font-weight: bold; margin-bottom: 0.75rem; }
+
+.precio-caja {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: var(--verde-claro);
+    border: 2px solid var(--verde);
+}
+.precio-noche { background: var(--oscuro); border-color: var(--oscuro); color: var(--blanco); }
+.precio-noche .precio-valor { color: var(--acento); }
+
+.boton-completo { width: 100%; }
+
+/* Formulario */
+.reserva-formulario {
+    background: var(--blanco);
+    padding: 1.25rem;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    border-top: 4px solid var(--verde);
+}
+.reserva-formulario .titulo-grupo { margin-top: 0; }
+
+.aviso-demo {
+    background: #fff9e0;
+    border-left: 4px solid var(--acento);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+.campo { display: flex; flex-direction: column; gap: 0.35rem; }
+.campo label { font-weight: bold; }
+.opcional { font-weight: normal; color: #5b6b61; }
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    min-height: 3rem;          /* alto cómodo para tocar con el dedo */
+    padding: 0.7rem 0.9rem;
+    font: inherit;
+    border: 2px solid #c5d0c9;
+    border-radius: 10px;
+    background: var(--blanco);
+    color: var(--texto);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.campo textarea { resize: vertical; }
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible {
+    outline: none;
+    border-color: var(--verde);
+    box-shadow: 0 0 0 4px var(--verde-claro);
+}
+/* Marca los campos con datos inválidos solo después de que el usuario escribió algo */
+.campo input:not([type="date"]):not(:placeholder-shown):invalid { border-color: #c0392b; }
+
+.reserva-formulario .nota { margin-top: 1.25rem; }
+
+.pago {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: var(--radio);
+    background: var(--oscuro);
+    color: var(--blanco);
+    border-left: 6px solid var(--acento);
+}
+.pago h3 { color: var(--acento); margin-bottom: 0.4rem; }
+
+@media (min-width: 768px) {
+    .rejilla-opciones { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .reserva-formulario { padding: 2rem; }
+    .formulario { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .campo-completo { grid-column: 1 / -1; }
+    .boton-completo { width: auto; }
+    .opcion .boton-completo { width: 100%; }
+}
