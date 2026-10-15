@@ -161,6 +161,132 @@
             </div>
         </section>
 
+        <!-- RESERVAS -->
+        <section class="seccion seccion-gris" id="reservas" aria-labelledby="titulo-reservas">
+            <div class="contenedor">
+                <h2 class="titulo-seccion" id="titulo-reservas">Reserva tu cancha</h2>
+                <p class="subtitulo-seccion">Elige la instalación que deseas alquilar y revisa cómo solicitar tu reserva.</p>
+
+                <fieldset class="selector">
+                    <legend class="selector-leyenda">1. Elige una instalación</legend>
+                    <div class="rejilla-opciones">
+                        <div class="opcion">
+                            <input class="opcion-radio" type="radio" name="instalacion" id="inst-futsal1" value="futsal1" form="form-reserva">
+                            <label class="opcion-tarjeta" for="inst-futsal1">
+                                <span class="opcion-imagen">
+                                    <img class="img-futsal1" src="img/futsal1.jpg" loading="lazy" decoding="async" alt="Cancha de Futsal 1 con césped sintético y carteles de La Videna en la pared azul">
+                                    <span class="etiqueta">Futsal</span>
+                                    <span class="opcion-marca">✔ Seleccionada</span>
+                                </span>
+                                <span class="opcion-cuerpo">
+                                    <span class="opcion-nombre">Cancha de Futsal 1</span>
+                                    <span class="precios">
+                                        <span class="precio-caja"><span class="precio-turno"><span aria-hidden="true">☀</span> Día</span><span class="precio-valor">S/ 30</span></span>
+                                        <span class="precio-caja precio-noche"><span class="precio-turno"><span aria-hidden="true">☾</span> Noche</span><span class="precio-valor">S/ 60</span></span>
+                                    </span>
+                                </span>
+                            </label>
+                            <a class="boton boton-primario boton-completo" href="#formulario-reserva">Solicitar reserva</a>
+                        </div>
+                        <div class="opcion">
+                            <input class="opcion-radio" type="radio" name="instalacion" id="inst-futsal2" value="futsal2" form="form-reserva">
+                            <label class="opcion-tarjeta" for="inst-futsal2">
+                                <span class="opcion-imagen">
+                                    <img class="img-futsal2" src="img/futsal2.jpg" loading="lazy" decoding="async" alt="Cancha de Futsal 2 con césped sintético, arco al fondo y columna azul a la derecha">
+                                    <span class="etiqueta">Futsal</span>
+                                    <span class="opcion-marca">✔ Seleccionada</span>
+                                </span>
+                                <span class="opcion-cuerpo">
+                                    <span class="opcion-nombre">Cancha de Futsal 2</span>
+                                    <span class="precios">
+                                        <span class="precio-caja"><span class="precio-turno"><span aria-hidden="true">☀</span> Día</span><span class="precio-valor">S/ 30</span></span>
+                                        <span class="precio-caja precio-noche"><span class="precio-turno"><span aria-hidden="true">☾</span> Noche</span><span class="precio-valor">S/ 60</span></span>
+                                    </span>
+                                </span>
+                            </label>
+                            <a class="boton boton-primario boton-completo" href="#formulario-reserva">Solicitar reserva</a>
+                        </div>
+                        <div class="opcion">
+                            <input class="opcion-radio" type="radio" name="instalacion" id="inst-voley" value="voley-basquet" form="form-reserva">
+                            <label class="opcion-tarjeta" for="inst-voley">
+                                <span class="opcion-imagen">
+                                    <img class="img-voley" src="img/voley_basquet.jpg" loading="lazy" decoding="async" alt="Cancha de vóley y básquet con césped sintético, red central y bancas laterales">
+                                    <span class="etiqueta">Vóley y básquet</span>
+                                    <span class="opcion-marca">✔ Seleccionada</span>
+                                </span>
+                                <span class="opcion-cuerpo">
+                                    <span class="opcion-nombre">Cancha de Vóley y Básquet</span>
+                                    <span class="precios">
+                                        <span class="precio-caja"><span class="precio-turno"><span aria-hidden="true">☀</span> Día</span><span class="precio-valor">S/ 30</span></span>
+                                        <span class="precio-caja precio-noche"><span class="precio-turno"><span aria-hidden="true">☾</span> Noche</span><span class="precio-valor">S/ 35</span></span>
+                                    </span>
+                                </span>
+                            </label>
+                            <a class="boton boton-primario boton-completo" href="#formulario-reserva">Solicitar reserva</a>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="reserva-formulario" id="formulario-reserva">
+                    <h3 class="titulo-grupo">2. Completa tus datos</h3>
+                    <p class="aviso-demo"><strong>Formulario de demostración.</strong> Para confirmar tu reserva, consulta directamente con el complejo deportivo.</p>
+
+                    <!-- Sin JavaScript ni servidor: este formulario no envía ni guarda información -->
+                    <form class="formulario" id="form-reserva" action="#formulario-reserva" method="get">
+                        <div class="campo campo-completo">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Ej.: Nombre y apellidos" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="celular">Número de celular</label>
+                            <input type="tel" id="celular" name="celular" autocomplete="tel" inputmode="tel" placeholder="Tu número de celular" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="tipo-cancha">Tipo de cancha</label>
+                            <select id="tipo-cancha" name="tipo-cancha" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="futsal1">Cancha de Futsal 1</option>
+                                <option value="futsal2">Cancha de Futsal 2</option>
+                                <option value="voley-basquet">Cancha de Vóley y Básquet</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="fecha">Fecha deseada</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="horario">Horario</label>
+                            <select id="horario" name="horario" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="dia">Día</option>
+                                <option value="noche">Noche</option>
+                            </select>
+                        </div>
+
+                        <div class="campo campo-completo">
+                            <label for="comentarios">Comentarios <span class="opcional">(opcional)</span></label>
+                            <textarea id="comentarios" name="comentarios" rows="4" placeholder="Escribe aquí cualquier detalle que quieras consultar"></textarea>
+                        </div>
+
+                        <div class="campo-completo">
+                            <button class="boton boton-primario boton-completo" type="submit">Probar formulario (demostración)</button>
+                        </div>
+                    </form>
+
+                    <p class="nota">Este botón solo comprueba que los campos estén completos. No envía ni guarda tus datos y no genera ninguna reserva.</p>
+                </div>
+
+                <aside class="pago">
+                    <h3>Pago del adelanto</h3>
+                    <p>Consulta con el establecimiento el procedimiento de reserva y las condiciones del adelanto por Yape o Plin.</p>
+                </aside>
+            </div>
+        </section>
+        
     </main>
 
 </body>
