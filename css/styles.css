@@ -36,3 +36,36 @@ img {
 ul { list-style: none; }
 a { color: inherit; text-decoration: none; }
 
+.contenedor {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.texto-centrado { text-align: center; }
+
+.solo-lectores {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.saltar-contenido {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    background: var(--acento);
+    color: var(--oscuro);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    z-index: 100;
+}
+
+.menu-check:focus-visible + .menu-boton {
+    outline: 3px solid var(--acento);
+    outline-offset: 3px;
+}
+
