@@ -251,3 +251,36 @@ a { color: inherit; text-decoration: none; }
 .boton-primario:hover { background: var(--acento); color: var(--oscuro); }
 .boton-secundario { border-color: var(--blanco); color: var(--blanco); }
 .boton-secundario:hover { background: var(--blanco); color: var(--oscuro); }
+
+/* ---------- 6. SECCIONES ---------- */
+.seccion { padding: 3rem 0; }
+.seccion-gris { background: var(--gris); }
+.seccion-oscura {
+    background: linear-gradient(135deg, var(--oscuro), var(--verde-oscuro));
+    color: var(--blanco);
+}
+
+.titulo-seccion {
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+/* Línea verde decorativa debajo del título */
+.titulo-seccion::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 4px;
+    background: var(--verde);
+    margin-top: 0.4rem;
+    border-radius: 2px;
+}
+.texto-centrado .titulo-seccion::after { margin-left: auto; margin-right: auto; }
+
+.subtitulo-seccion { margin-bottom: 2rem; color: #4a5a50; }
+
+.titulo-grupo {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--verde-oscuro);
+}
